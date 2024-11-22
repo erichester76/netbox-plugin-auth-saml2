@@ -55,6 +55,7 @@ class SAML2AttrUserBackend(RemoteUserBackend):
         """
         saml2_auth_resp: AuthnResponse = request.META['SAML2_AUTH_RESPONSE']
         user_ident = saml2_auth_resp.get_identity()
+        print(f"{dir(user_ident)}")
 
         try:
             first_name = user_ident['first_name'][0].lower()
